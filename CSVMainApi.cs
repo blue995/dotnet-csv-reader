@@ -9,14 +9,14 @@ namespace CSVUtils
         public static ICollection<Dictionary<string, string>> GetDataTuples(string csvPath, char valueDelimiter)
         {
             // Read CSV
-            var csvReader = new CSVReader("data.csv", ';');
+            var csvReader = new CSVReader(csvPath, valueDelimiter);
 
             // Analyze content of CSV file
             var analyzer = new CSVDataAnalyzer(csvReader);
             var result = analyzer.Analyze();
 
             // Convert analyzed result to tuples (Should be used for testinput)
-            var testDataTuples = result.ConvertToTestDataTuples();
+            var testDataTuples = result.ConvertToDataTuples();
 
             return testDataTuples;
         }
