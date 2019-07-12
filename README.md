@@ -5,10 +5,6 @@
 * Flexible value delimiters
 * Named values (values of the first line represent the names of each value in the column)
 
-## Todo
-
-* String delimiters aren't flexible yet. Only `'` is supported as string delimiter.
-
 ## Important
 
 There should be no duplicate values in the first line.

@@ -55,7 +55,9 @@ namespace CSVUtils
             var match = Regex.Match(value, regexExpression, RegexOptions.Compiled);
             if (match.Success)
             {
-                return match.Groups[1].Value;
+                var newValue = match.Groups[1].Value;
+                newValue = DeepMatchRecursively(newValue, regexExpression);
+                return newValue.Replace("\"\"", "\"");
             }
 
             // If it is a bool value, return the bool string
@@ -64,6 +66,17 @@ namespace CSVUtils
                 return BoolParser.GetValue(value).ToString();
             }
             return value;
+        }
+
+        private string DeepMatchRecursively(string value, string regex)
+        {
+            var match = Regex.Match(value, regex);
+            if (!match.Success)
+            {
+                return value;
+            }
+            value = match.Groups[1].Value;
+            return DeepMatchRecursively(value, regex);
         }
     }
 }
