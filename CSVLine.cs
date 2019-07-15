@@ -42,11 +42,15 @@ namespace CSVUtils
 
         public bool IsEmpty()
         {
-            return myValues.All(value => !value.Any());
+            return myValues.All(value => value == null || !value.Any());
         }
 
         private string Convert(string value)
         {
+            if (value == "null")
+            {
+                return null;
+            }
             // Remove escaped '"' characters
             value = value.Replace("\\\"", "\"");
 

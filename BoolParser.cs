@@ -30,7 +30,7 @@ namespace CSVUtils
             {
                 // 1
                 // Avoid exceptions
-                if (value == null || !value.Any())
+                if (value == null)
                 {
                     return Boolean.FalseString;
                 }
