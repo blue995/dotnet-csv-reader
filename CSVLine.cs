@@ -51,6 +51,9 @@ namespace CSVUtils
             {
                 return null;
             }
+            // Convert line breaks to escaped line breaks 
+            value = value.Replace("\\n", "\n");
+
             // Remove escaped '"' characters
             value = value.Replace("\\\"", "\"");
 
