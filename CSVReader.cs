@@ -20,10 +20,6 @@ namespace CSVUtils
             var result = new List<CSVLine>();
             using (var reader = new StreamReader(myPath))
             {
-                if (reader.EndOfStream)
-                {
-                    return result;
-                }
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
